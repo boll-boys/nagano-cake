@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get "/about" => "homes#about" 
   root to: 'homes#top'
   devise_for :admin,skip: [:registrations, :passwords]  ,controllers: {
   sessions: 'adomin/sessions'
