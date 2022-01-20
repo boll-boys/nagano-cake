@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get '/about' => 'homes/about'
+
+  get '/about' => 'homes#about'
+  root to: 'homes#top'
 
   devise_for :admins
   devise_for :customers, controllers: {
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :customer do
   resources :items, only: [:index, :show]
   end
-  
+
 
 
 
