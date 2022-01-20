@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/about' => 'homes/about'
 
   devise_for :admins
   devise_for :customers, controllers: {
@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
+  scope module: :customer do
+  resources :items, only: [:index, :show]
+  end
+  
 
 
 
