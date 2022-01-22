@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :create, :update]
   end
+  scope module: :customers do
+  resources :addresses, except: [:show, :new]
+  end
+
 
 
 
