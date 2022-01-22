@@ -1,5 +1,4 @@
-class Customer::ItemsController < ApplicationController
-
+class Customers::ItemsController < ApplicationController
   def index
     @items = Item.all.page(params[:page])
   end
