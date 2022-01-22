@@ -2,7 +2,7 @@ class Customers::AddressesController < ApplicationController
 
   def index
     @address = Address.new
-    @addreeses =Address.all
+    @addresses =Address.all
   end
 
   def create
@@ -10,6 +10,10 @@ class Customers::AddressesController < ApplicationController
     @address.customer_id = current_customer.id
     @address.save
     redirect_to request.referer
+  end
+
+  def edit
+
   end
 
   private
