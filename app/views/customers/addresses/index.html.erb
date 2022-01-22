@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h5 class="mx-auto .bg-secondary.bg-gradient">配送先登録/一覧</h5>
+      <%= render 'form',address: @address %>
+    </div>
+    <div class="mx-auto">
+      <%= render 'table', addresses: @addresses %>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,10 @@ Rails.application.routes.draw do
       delete '/cart_items' => 'cart_items#destroy_all'
 
   end
+  scope module: :customers do
+  resources :addresses, except: [:show, :new]
+  end
+
 
 
 
