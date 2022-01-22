@@ -4,7 +4,7 @@
 
         <h2>商品一覧</h2>
         <div>
-          <%= @items.each do |item| %>
+          <% @items.each do |item| %>
             <%= render "item_each", item: item %>
           <% end %>
         </div>
