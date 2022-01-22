@@ -5,10 +5,10 @@
     <%= form_with model:@item, url: admin_item_path, method: :patch, class: "form-horizontal" do |f| %>
       <div class="col-xs-4">
         <div class="img_field">
-          <%= attachment_image_tag(@item, :image_id, size: "250x180") %>
+          <%= attachment_image_tag(@item, :image, size: "250x180") %>
         </div>
         <div class="form-group">
-  	      <%= f.file_field :imag_id, id: "user_img" %>
+  	      <%= f.file_field :image, id: "user_img" %>
         </div>
       </div>
 

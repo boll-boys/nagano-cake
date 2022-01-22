@@ -5,9 +5,9 @@
       <%= form_with model:@item, url: admin_items_path, method: :post, class: "form-horizontal" do |f| %>
         <div class="col-xs-4 col-xs-offset-1">
           <div class="img_field">
-            <%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg' %>
+            <%= attachment_image_tag @item, :image, :fill, 100, 100, format: 'jpeg' %>
           </div>
-            <%= f.file_field :imag_id, id: "user_img" %>
+            <%= f.file_field :image, id: "user_img" %>
         </div>
 
         <div class="form-group">
