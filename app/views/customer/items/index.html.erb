@@ -1,0 +1,14 @@
+<div class= "container">
+  <div class= "row">
+    <div class="col-xs-9">
+
+        <h2>商品一覧</h2>
+        <div>
+          <%= @items.each do |item| %>
+            <%= render "item_each", item: item %>
+          <% end %>
+        </div>
+        <%= paginate @items %>
+      </div>
+    </div>
+</div>
