@@ -1,17 +1,17 @@
 <h5>
   <div class="font-weight-bold">
-    
+
   </div>
 </h5>
  <div class="container">
-  
+
 <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
 
    <div class="form-inline">
      <div class="form-group">
     　<lavel>名前</lavel>
-　　　　　
+
         <div class="fist_name" >
           <div class="ml-5">
        <%= f.label :（性）%>
@@ -33,7 +33,7 @@
 <div class="form-inline">
      <div class="form-group">
     　<lavel>フリガナ </lavel>
-　　　　　
+
         <div class="fist_name" >
           <div class="ml-2">
        <%= f.label :（セイ）%>
@@ -51,8 +51,8 @@
          </div>
       </div>
 
-     
-  
+
+
   <div class="form-inline">
     <div class="form-group">
       <div class="postal-code">
@@ -89,18 +89,3 @@
     </div>
   </div>
 </div>
- <div class="form-inline">
-    <div class="form-group">
-     <div class="password">
-       <div class="ml-2">
-       <%= f.label :パスワード（６文字以上）%>
-    <% if @minimum_password_length %>
-    <% end %>
-       </div>
-     </div>
-  <div class="ml-4 d-flex align-items-center justify-content-center" style="height:80px">
-    <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-      </div>
-   </div>
-
