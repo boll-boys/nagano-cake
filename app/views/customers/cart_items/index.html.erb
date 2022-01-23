@@ -2,7 +2,7 @@
 	<h2 class="head-line text-center">ショッピングカート</h2>
 	<div class="row">
 		<div class="text-right">
-			<%= link_to  "カートを空にする",customers_customer_destroy_all_path(@customer.id) ,method: :delete, class: "btn btn-danger" %>
+			<%#= link_to  "カートを空にする", cart_item_path, method: :delete, class: "btn btn-danger" %>
 		</div><br>
 
 		<table class="table">
@@ -21,7 +21,6 @@
   			  <tr id="cart-<%= cart_item.id %>">
             <%= render "amount_form", cart_item: cart_item %>
           </tr>
-        <% end %>
 			</tbody>
 		</table>
 		<div class="col-xs-9 margin-bottom">
@@ -29,25 +28,26 @@
         <%= link_to " 買い物を続ける", items_path, class: "glyphicon glyphicon-shopping-cart btn btn-info" %>
       </div>
     </div>
-    
+
     <div class="col-xs-3 pull-right billing">
       <table class="table table-bordered text-right">
         <thead>
           <tr>
             <td class="warning">合計金額</td>
             <td class="text-right" id='total_price'>
-              ¥<%= total_price(@cart_items).to_s(:delimited) %>
+              ¥<%#= amount(@cart_items).to_s(:delimited) %>
+              <% @合計金額 +=  cart_item.subtotal %>
             </td>
           </tr>
         </thead>
       </table>
     </div>
-    
+	<% end %>
 		</div>
 	</div>
 	<div class="row">
 			<div class="text-center">
-			<%= link_to "情報入力へ進む", new_customers_customer_order_detail_path(current_customer.id),class: "btn btn-success btn-lg active" %>
-		</div><br>
+			<%#= link_to "情報入力へ進む", new_customers_customer_order_detail_path,	class: "btn btn-success btn-lg active" %>
+		</div>
 	</div>
 </div>
