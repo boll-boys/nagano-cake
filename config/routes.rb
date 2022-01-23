@@ -19,9 +19,13 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
-  scope module: :customer do
+  scope module: :customers do
   resources :items, only: [:index, :show]
   end
+  scope module: :customers do
+  resources :addresses, except: [:show, :new]
+  end
+
 
 
 
