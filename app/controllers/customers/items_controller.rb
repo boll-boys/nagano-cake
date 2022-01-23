@@ -6,7 +6,6 @@ class Customers::ItemsController < ApplicationController
   def show
     @items = Item.all
     @item =Item.find(params[:id])
-    @item
   end
 
   private

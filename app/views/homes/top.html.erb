@@ -8,7 +8,7 @@
       購入には会員登録が必要になります。
       </p>
       <h3>新着商品</h3>
-      <div>
+      <div class="d-flex align-items-start">
         <% @items.each do |item| %>
           <%= render "customers/items/item_each",item: item%>
         <% end %>
