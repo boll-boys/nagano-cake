@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   devise_for :admin,skip: [:registrations,:passwords,], controllers: {
   registrations: "admin/registrations",
   sessions: 'admin/sessions'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   registrations: "customers/registrations",
   sessions: 'customers/sessions'
   }
-  
+
   get '/about' => 'homes#about'
   root to: 'homes#top'
 
@@ -20,10 +20,10 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
   scope module: :customers do
-  resources :items, only: [:index, :show]
-  end
-  scope module: :customers do
-  resources :addresses, except: [:show, :new]
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete '/cart_items' => 'cart_items#destroy_all', as: :destroy_all_cart_items
+    resources :addresses, except: [:show, :new]
   end
 
 
