@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   devise_for :admin,skip: [:registrations,:passwords,], controllers: {
   registrations: "admin/registrations",
   sessions: 'admin/sessions'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   registrations: "customers/registrations",
   sessions: 'customers/sessions'
   }
-  
+
   get '/about' => 'homes#about'
   root to: 'homes#top'
 
