@@ -2,7 +2,7 @@
 	<h2 class="head-line text-center">ショッピングカート</h2>
 	<div class="row">
 		<div class="text-right">
-			<%#= link_to  "カートを空にする", cart_item_path, method: :delete, class: "btn btn-danger" %>
+			<%= link_to  "カートを空にする", cart_item_path, method: :delete, class: "btn btn-danger" %>
 		</div><br>
 
 		<table class="table">
@@ -34,9 +34,9 @@
         <thead>
           <tr>
             <td class="warning">合計金額</td>
-            <td class="text-right" id='total_price'>
+            <td class="text-right">
               ¥<%#= amount(@cart_items).to_s(:delimited) %>
-              <% @合計金額 +=  cart_item.subtotal %>
+              <%= (@total_price * 1.1).floor	%>
             </td>
           </tr>
         </thead>
