@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
-  devise_for :admin,skip: [:passwords,], controllers: {
+  
+  devise_for :admin,skip: [:registrations,:passwords,], controllers: {
   registrations: "admin/registrations",
   sessions: 'admin/sessions'
 }
@@ -10,24 +10,20 @@ Rails.application.routes.draw do
   registrations: "customers/registrations",
   sessions: 'customers/sessions'
   }
-
+  
   get '/about' => 'homes#about'
   root to: 'homes#top'
 
 
   namespace :admin do
-    resources :customers
-    resources :genres, only: [:index, :edit, :update]
+     resources :customers, onry: [:show, :edit, :update, :index]
+    resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
   scope module: :customers do
+  resources :customers, only: [:show, :edit, :update]
   resources :items, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :create, :update]
   end
-  scope module: :customers do
-  resources :addresses, except: [:show, :new]
-  end
-
 
 
 

@@ -1,10 +1,9 @@
 class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
-     if @user == current_customer
-            render "edit"
+     if @customer == current_customer
      else
-     redirect_to customer_path(current_user.id)
+     redirect_to customer_path(current_customer.id)
      end
   end
   
