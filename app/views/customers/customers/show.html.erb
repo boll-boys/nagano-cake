@@ -1,18 +1,52 @@
 <h3>マイページ</h3>
-<div class="font-weight-bold">
-登録情報
-</div>
+
+  <div class="form-inline">
+   <div class="form-group">
+    <div class="font-weight-bold">
+   登録情報
+     </div>
+     <div class="actns">
+    <%=link_to "編集する",edit_customer_path, class: "ml-2 btn px-5  btn-success font-weight-bold d-flex" %>
+     </div>
+   </div>
+ </div>
+
+
+  </p>
+
 <table border="1">
 
-    <tbody>
-        <tr valign="middle">
-            <td width="200" height="40">氏名</td>
-            <td width="400" height="40">
-               <%= "#{@customer.fist_name、}" %>
-            </td>
+  <tbody>
+    <tr>
+      <th width="200" height="40">氏名</th>
+        <td width="400" height="40">
+          <%= "#{@customer.fist_name}" "　" "#{@customer.last_name}" %>
+        </td>
+    </tr>
+    <tr>
+      <th width="200" height="40">カナ</th>
+        <td width="400" height="40">
+          <%= "#{@customer.fist_name_kana}" "　" "#{@customer.last_name_kana}" %>
+        </td>
+    </tr>
+     <tr>
+      <th width="200" height="40">郵便番号</th>
+        <td width="400" height="40">
+          <%= "#{@customer.postal_code}" %>
+        </td>
+    </tr>
+    <tr>
+      <th width="200" height="40">電話番号</th>
+        <td width="400" height="40">
+          <%= "#{@customer.phon_number}"  %>
+        </td>
+    </tr>
+    <tr>
+      <th width="200" height="40">メールアドレス</th>
+        <td width="400" height="40">
+          <%= "#{@customer.email}" %>
+        </td>
+    </tr>
 
-        </tr>
-
-    </tbody>
-
+  </tbody>
 </table>
