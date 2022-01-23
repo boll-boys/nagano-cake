@@ -2,7 +2,7 @@
 	<h2 class="head-line text-center">ショッピングカート</h2>
 	<div class="row">
 		<div class="text-right">
-			<%= link_to  "カートを空にする", cart_item_path, method: :delete, class: "btn btn-danger" %>
+			<%= link_to  "カートを空にする", destroy_all_cart_items_path, method: :delete, class: "btn btn-danger" %>
 		</div><br>
 
 		<table class="table">
@@ -21,6 +21,7 @@
   			  <tr id="cart-<%= cart_item.id %>">
             <%= render "amount_form", cart_item: cart_item %>
           </tr>
+          <% end %>
 			</tbody>
 		</table>
 		<div class="col-xs-9 margin-bottom">
@@ -42,7 +43,6 @@
         </thead>
       </table>
     </div>
-	<% end %>
 		</div>
 	</div>
 	<div class="row">
