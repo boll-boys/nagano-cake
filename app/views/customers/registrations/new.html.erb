@@ -50,9 +50,18 @@
      <%= f.text_field  :last_name_kana, autofocus: true, :placeholder =>"道子" %>
          </div>
       </div>
-
-     
-  
+<div class="form-inline">
+    <div class="form-group">
+      <div class="postal-code">
+        <div class="ml-3 ">
+    <%= f.label :郵便番号（ハイフンなし） %>
+        </div>
+          </div>
+        <div class="ml-4 d-flex align-items-center justify-content-center" style="height:40px">
+    <%= f.text_field :postal_code, autofocus: true, :placeholder =>"0000000" %><br />
+        </div>
+      </div>
+    </div>
   <div class="form-inline">
     <div class="form-group">
       <div class="postal-code">
