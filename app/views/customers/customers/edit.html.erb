@@ -1,0 +1,123 @@
+<div id="error_explanation">
+<% if @customer.errors.any? %>
+  <h3><%= @customer.errors.count %>error prohibited this obj from being saved:</h3>
+  <% @customer.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+</div>
+
+<h5>
+  <div class="font-weight-bold">
+   会員情報編集
+  </div>
+</h5>
+ <%= form_with model: @customer, url: customer_path, local: true do |f| %>
+
+   <div class="form-inline">
+     <div class="form-group">
+    　<lavel>名前</lavel>
+
+        <div class="fist_name" >
+          <div class="ml-5">
+       <%= f.label :（性）%>
+          </div>
+        </div>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= f.text_field :fist_name, autofocus: true, :placeholder =>"令和"%>
+     </div>
+       <div class="last_name">
+         <div class="ml-2">
+       <%= f.label :（名）%>
+         </div>
+       </div>
+         <div class="ml-3" >
+     <%= f.text_field  :last_name, autofocus: true, :placeholder =>"道子" %>
+         </div>
+      </div>
+    </div>
+    <div class="form-inline">
+     <div class="form-group">
+    　<lavel>フリガナ </lavel>
+
+        <div class="fist_name" >
+          <div class="ml-2">
+       <%= f.label :（セイ）%>
+          </div>
+        </div>
+      <div class=" d-flex align-items-center justify-content-center" style="height:80px" >
+      <%= f.text_field :fist_name_kana, autofocus: true, :placeholder =>"令和"%>
+     </div>
+       <div class="last_name">
+         <div class="ml-2">
+       <%= f.label :（メイ）%>
+         </div>
+       </div>
+     <%= f.text_field  :last_name_kana, autofocus: true, :placeholder =>"道子" %>
+         </div>
+      </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="postal-code">
+        <div class="ml-4 ">
+    <%= f.label :メールアドレス %>
+        </div>
+          </div>
+        <div class="ml-5 d-flex align-items-center justify-content-center" style="height:60px">
+    <%= f.email_field :email, autofocus: true, :placeholder =>"0000000" %><br />
+        </div>
+      </div>
+    </div>
+
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="postal-code">
+        <div class="ml-3 ">
+    <%= f.label :郵便番号（ハイフンなし） %>
+        </div>
+          </div>
+        <div class="ml-4 d-flex align-items-center justify-content-center" style="height:40px">
+    <%= f.text_field :postal_code, autofocus: true, :placeholder =>"0000000" %><br />
+        </div>
+      </div>
+    </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="address">
+        <div class="ml-3 mr-5">
+    <%= f.label :住所 %>
+        </div>
+          </div>
+         　 <div class="ml-5 d-flex align-items-center justify-content-center"style="height:60px">
+    <%= f.text_field :address, autofocus: true, :placeholder =>"東京都渋谷区代々木神園町0-0",:size=>"60" %><br />
+           </div>
+          </div>
+       </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="phon_number">
+        <div class="ml-3 ">
+    <%= f.label :電話番号（ハイフンなし） %>
+        </div>
+          </div>
+           <div class="ml-3 d-flex align-items-center justify-content-center"style="height:40px">
+    <%= f.text_field :phon_number, autofocus: true, :placeholder =>"0000000000" %><br />
+    </div>
+  </div>
+</div>
+
+
+  <div class="form-inline">
+    <div class="form-group" style="height:80px">
+      <div class="actns" >
+    <%= f.submit "編集内容を保存", class: "ml-2 btn px-5  btn-success font-weight-bold" %>
+      </div>
+    <% end %>
+
+   <div class="form-inline">
+     <div class="form-group">
+       <div class="actns">
+    <%= link_to "退会する"," /customers/#{@customer.id}/quit", class: "ml-2 btn px-5  btn-danger font-weight-bold" %>
+      </div>
+    </div>
+  </div>
