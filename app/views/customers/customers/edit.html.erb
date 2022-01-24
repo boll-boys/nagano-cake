@@ -12,7 +12,7 @@
    会員情報編集
   </div>
 </h5>
- <%= form_with model: @customer, url:"/customers/#{@customer.id}", local: true do |f| %>
+ <%= form_with model: @customer, url: customer_path, local: true do |f| %>
 
    <div class="form-inline">
      <div class="form-group">
@@ -112,11 +112,12 @@
       <div class="actns" >
     <%= f.submit "編集内容を保存", class: "ml-2 btn px-5  btn-success font-weight-bold" %>
       </div>
- <div class="form-inline">
-    <div class="form-group">
-      <div class="actns">
-    <%= f.submit "退会する", class: "ml-2 btn px-5  btn-danger font-weight-bold" %>
+    <% end %>
+
+   <div class="form-inline">
+     <div class="form-group">
+       <div class="actns">
+    <%= link_to "退会する"," /customers/#{@customer.id}/quit", class: "ml-2 btn px-5  btn-danger font-weight-bold" %>
       </div>
     </div>
   </div>
-    <% end %>
