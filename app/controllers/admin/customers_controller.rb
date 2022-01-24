@@ -1,5 +1,5 @@
 class Admin::CustomersController < ApplicationController
   def index
-    @customer = Customers
+    @customer = Customers.all
   end
 end
