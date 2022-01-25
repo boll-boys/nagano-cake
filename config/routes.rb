@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
-  
+
   scope module: :customers do
     resources :customers, only: [:edit, :update]
     get "customers/my_page" => "customers#show", as: "my_page"
@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete '/cart_items' => 'cart_items#destroy_all', as: :destroy_all_cart_items
     resources :addresses, except: [:show, :new]
+
+    get   '/orders/complete' => 'orders#complete', as: :complete
+    post '/orders/confirm' => 'orders#confirm', as: :confirm
+    resources :orders, only: [:new, :index, :show, :create,  :complete]
   end
 
 
