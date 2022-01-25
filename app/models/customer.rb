@@ -13,7 +13,6 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-
   validates :fist_name, presence: true
   validates :last_name, presence: true
   validates :fist_name_kana, format: { with:/\A[ァ-ヶー－]+\z/ }, presence: true
