@@ -48,7 +48,7 @@
                 <%= f.text_field :postal_code, autofocus: true, class: "form-control" %>
              </div>
         </div>
-  <div class = "row">
+        <div class = "row">
              <div class = "col-4" >
                 <%= f.label :住所  %>
              </div>
@@ -56,30 +56,22 @@
                 <%= f.text_field :postal_code, autofocus: true, class: "form-control" %>
              </div>
         </div>
-  <div class="form-inline">
-    <div class="form-group">
-      <div class="phon_number">
-        <div class="ml-3 ">
-    <%= f.label :電話番号（ハイフンなし） %>
+        <div class = "row">
+             <div class = "col-4" >
+                <%= f.label :電話番号 %>
+             </div>
+             <div class = "col-4" >
+                <%= f.text_field :phon_number, autofocus: true, class: "form-control" %>
+             </div>
         </div>
-          </div>
-           <div class="ml-3 d-flex align-items-center justify-content-center"style="height:40px">
-    <%= f.text_field :phon_number, autofocus: true, :placeholder =>"0000000000" %><br />
-    </div>
-  </div>
-</div>
- <div class="form-inline">
-    <div class="form-group">
-      <div class="postal-code">
-        <div class="ml-4 ">
-    <%= f.label :メールアドレス %>
+        <div class = "row">
+             <div class = "col-4" >
+                <%= f.label :メールアドレス  %>
+             </div>
+             <div class = "col-4" >
+                <%= f.text_field :email, autofocus: true, class: "form-control" %>
+             </div>
         </div>
-          </div>
-        <div class="ml-5 d-flex align-items-center justify-content-center" style="height:60px">
-    <%= f.email_field :email, autofocus: true, :placeholder =>"0000000" %><br />
-        </div>
-      </div>
-    </div>
 
 
   <div class="form-inline">
