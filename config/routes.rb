@@ -16,10 +16,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :customers, onry: [:show, :edit, :update, :index]
+    resources :customers, only: [:show, :edit, :update, :index]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
+  
   scope module: :customers do
     resources :customers, only: [:edit, :update]
     get "customers/my_page" => "customers#show", as: "my_page"
@@ -31,8 +32,8 @@ Rails.application.routes.draw do
     resources :addresses, except: [:show, :new]
   end
 
-   
-  
+
+
 
 
 
