@@ -16,11 +16,12 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :customers, onry: [:show, :edit, :update, :index]
+    resources :customers, only: [:show, :edit, :update, :index]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :orders,only: [:index, :show]
   end
+
   scope module: :customers do
     resources :customers, only: [:edit, :update]
     get "customers/my_page" => "customers#show", as: "my_page"
@@ -30,14 +31,9 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete '/cart_items' => 'cart_items#destroy_all', as: :destroy_all_cart_items
     resources :addresses, except: [:show, :new]
+
+    get   '/orders/complete' => 'orders#complete', as: :complete
+    post '/orders/confirm' => 'orders#confirm', as: :confirm
+    resources :orders, only: [:new, :index, :show, :create,  :complete]
   end
-
-   
-  
-
-
-
-
-
-
 end
