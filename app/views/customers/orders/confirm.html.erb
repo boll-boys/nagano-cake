@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1">
+      <!-- ユーザーに確認してもらうための表示です -->
+      <% @cart_items.each do |cart| %>
+        <%#= cart.item.address %>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>単価(税込み)</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= cart.item.name %> <!-- 商品名 --></td>
+                <td><%= (cart.item.price).to_s(:delimited) %><!-- 金額 --></td>
+                <td><%= cart.amount %> <!-- 個数 --></td>
+                <td><%= (cart.item.price*cart.amount).to_s(:delimited) %> <!-- 小計 --></td>
+              </tr>
+
+            </tbody>
+        </table>
+      <% end %>
+      <div class="col-xs-3">
+        <table>
+          <tr>
+            <th class="info">送料</th>
+            <td class="info">800円<%#= @order.shipping_cost.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <th class="info">商品合計</th>
+            <td><%= @total.to_s(:delimited) %> <!-- お買い物の合計金額 <--></td>
+          </tr>
+          <tr>
+            <th class="info">請求金額</th>
+            <td><%= (800 + @total).to_s(:delimited)%></td>
+          </tr>
+        </table>
+        <table>
+          <tr class="info">
+            <th class= "info">支払い方法</th>
+              <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <th class= "info">お届け先</th>
+              <td><%= @order.address %></td>
+              <td><%= @order.postal_code %></td>
+              <td><%= @order.name %></td>
+          </tr>
+        </table>
+      </div>
+
+
+      <!-- ユーザーには注文確定ボタンだけ表示します -->
+      <%= form_with model: @order, url: orders_path, local: true do |f| %>
+        <%= f.hidden_field :address_name %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :postal_code %>
+        <%= f.hidden_field :shipping_cost, value: 800 %>
+        <%= f.hidden_field :total_price, value: @total %>
+        <%= f.submit "注文を確定する" %>
+      <% end %>
+    </div>
+  </div>
+</div>
