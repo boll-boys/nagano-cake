@@ -11,12 +11,12 @@ class Customers::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     if @order.save
       cart_items.each do |cart|
-        order_item = OrderItem.new
-        order_item.item_id = cart.item_id
-        order_item.order_id = @order.id
-        order_item.order_amount = cart.amount
-        order_item.order_price = cart.item.price
-        order_item.save
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart.item_id
+        order_detail.order_id = @order.id
+        order_detail.amount = cart.amount
+        order_detail.price = cart.item.price
+        order_detail.save
       end
       redirect_to complete_path
       cart_items.destroy_all
@@ -29,7 +29,7 @@ class Customers::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
       if params[:order][:address_number] == "1"
-         @order.name = current_customer.fist_name
+        @order.name = current_customer.fist_name
         @order.address = current_customer.address
         @order.postal_code = current_customer.postal_code
       elsif params[:order][:address_number] == "2"
@@ -49,6 +49,16 @@ class Customers::OrdersController < ApplicationController
 
   end
   def complete
+  end
+
+  def index
+    @orders = current_customer.orders.all
+    @order_details =OrderDetail.all
+  end
+
+  def show
+    @order =Order.find(params[:id])
+    @order_details = OrderDetail.all
   end
 
   private
