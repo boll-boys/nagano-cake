@@ -1,12 +1,13 @@
 class Admin::OrdersController < ApplicationController
 
   def index
-    @orders =Order.all
-    @odrders = OrderDetail.all
+    @orders =Order.all.page(params[:page]).reverse_order
   end
 
   def show
     @order = Order.find(params[:id])
+    @order_details =@order.order_details
+    
   end
   
   def update
@@ -17,7 +18,8 @@ class Admin::OrdersController < ApplicationController
         @order_details.each do |order_detail|
           order_detail.making_status = "waiting_production"
           order_detail.save
-        end  
+        end
+        
       end
         redirect_to request.referer
     end
