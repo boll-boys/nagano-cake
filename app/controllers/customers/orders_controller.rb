@@ -34,7 +34,7 @@ class Customers::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
       if params[:order][:address_number] == "1"
-        @order.name = current_customer.fist_name
+        @order.name = current_customer.fist_name + current_customer.last_name
         @order.address = current_customer.address
         @order.postal_code = current_customer.postal_code
       elsif params[:order][:address_number] == "2"
