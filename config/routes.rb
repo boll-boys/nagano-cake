@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update, :index]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :orders,only: [:index, :show]
   end
 
   scope module: :customers do
@@ -35,13 +36,4 @@ Rails.application.routes.draw do
     post '/orders/confirm' => 'orders#confirm', as: :confirm
     resources :orders, only: [:new, :index, :show, :create,  :complete]
   end
-
-
-
-
-
-
-
-
-
 end
