@@ -2,5 +2,6 @@
   <div class="row">
     <h4>注文履歴一覧</h4>
      <%= render 'table',orders: @orders%>
+     <%= paginate @orders %>
   </div>
 </div>
