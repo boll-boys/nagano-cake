@@ -1,0 +1,14 @@
+<div class= "container">
+  <div class= "row">
+    <div class="mx-auto">
+
+        <h2>商品一覧</h2>
+        <div class="d-flex flex-wrap">
+          <% @items.each do |item| %>
+            <%= render "item_each", item: item %>
+          <% end %>
+        </div>
+        <%= paginate @items %>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<h2>管理者ログイン</h2>
+
+<%= form_with model: @admin, url: new_admin_session_path, local: true do |f| %>
+  <div class="container">
+    <div class="form-inline">
+     <div class="form-group">
+        <div class="fist_name" >
+          <div class="ml-2 ">
+       <%= f.label :メールアドレス %>
+          </div>
+        </div>
+         <din class="e-mail-form" >
+      <div class= " d-flex align-items-center 　justify-content-center" style="height:80px">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder =>"メールアドレス" %><br />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-inline">
+    <div class="form-group">
+      <div class="password">
+        <div class="ml-2">
+       <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <% end %>
+        </div>
+      </div>
+   <div class="ml-5 d-flex align-items-center justify-content-center" style="height:80px">
+    <%= f.password_field :password, autocomplete: "new-password" %>
+   </div>
+      </div>
+   </div>
+  <p>
+    <div class="align-items-center" style="height:50px">
+     <div class="actns">
+    <%= f.submit "ログイン",class: "ml-4 btn-primary link btn- col-3 font-weight-bold align-items-center justify-content-center" %>
+     </div>
+    </div>
+  </p>
+   </div>
+   <% end %>
+

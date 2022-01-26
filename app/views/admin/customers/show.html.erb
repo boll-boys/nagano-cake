@@ -1,0 +1,96 @@
+<div class="form-inline">
+  <div class="offset-md-1">
+    <h4 class="font-weight-bold"><%= "#{@customer.fist_name}" "#{@customer.last_name}" %></h4>
+  </div>
+    <h4>さんの</h4>
+    <h4 class="font-weight-bold"><%= "会員詳細" %></h4>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-inline">
+    <div class="form-group">
+    　<lavel>会員ID</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.id}" %>
+      </div>
+     </div>
+  </div>
+ <div class="form-inline">
+    <div class="form-group">
+    　<lavel>氏名</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.fist_name}" "　""#{@customer.last_name}" %>
+      </div>
+     </div>
+  </div>
+       <div class="form-inline">
+    <div class="form-group">
+    　<lavel>フリガナ </lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:40px" >
+      <%= "#{@customer.fist_name_kana}" "　""#{@customer.last_name_kana}" %>
+      </div>
+     </div>
+  </div>
+   <div class="form-inline">
+    <div class="form-group">
+    　<lavel>郵便番号</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.postal_code}" %>
+      </div>
+     </div>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+    　<lavel>住所</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.address}" %>
+      </div>
+     </div>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+    　<lavel>電話番号</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.phon_number}" %>
+      </div>
+     </div>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+    　<lavel>メールアドレス</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+      <%= "#{@customer.email}" %>
+      </div>
+     </div>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+    　<lavel>会員ステータス</lavel>
+      <div class="ml-2 d-flex align-items-center justify-content-center" style="height:60px" >
+        <% if @customer.is_deleted == true %>
+          <div class="form-inline text-muted">
+            無効
+         </div>
+          <% else %>
+          <div class="form-inline text-success">
+            有効
+          </div>
+          <% end %>
+      </div>
+     </div>
+  </div>
+  </div>
+   <div class="form-inline">
+    <div class="form-group" style="height:80px">
+      <div class="actns" >
+<%= link_to "編集する", edit_admin_customer_path, class: "ml-2 btn px-5  btn-success font-weight-bold d-flex"  %>
+　　　</div>
+  　</div>
+    <div class="form-group" style="height:80px">
+      <div class="actns" >
+  <%= link_to "注文履歴一覧を見る", admin_orders_path, class: "ml-5 btn px-5  btn-primary font-weight-bold d-flex" %>
+  　　</div>
+  　</div>
+  </div>
+ </div>

@@ -1,0 +1,39 @@
+   <div class="col-md-8 offset-md-1">
+     <div class="font-weight-bold">
+      <h2>会員一覧</h2>
+     </div>
+     <table class="table table-hover table-inverse">
+       <thead>
+          <tr>
+       　   <th>会員ID</th>
+           <th>氏名</th>
+           <th>メールアドレス</th>
+           <th>販売ステータス</th>
+           </tr>
+        </thead>
+      <tbody>
+          <% @customer.each do |customer| %>
+        <tr>
+        <td><%= customer.id %>
+      <div class="form-inline">
+        <div class="form-group">
+          <td><%= link_to "#{customer.fist_name}　#{customer.last_name}",admin_customer_path(customer.id) %></td>
+        </div>
+      </div>
+      <td><%= customer.email %></td>
+        <td>
+          <% if customer.is_deleted == true %>
+          <div class="form-inline text-muted">
+            退会
+         </div>
+          <% else %>
+          <div class="form-inline text-success">
+            有効
+          </div>
+          <% end %>
+          <% end %>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+       </div>
