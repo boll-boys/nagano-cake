@@ -1,9 +1,37 @@
 <div class="container">
   <div class="row">
     <h5>注文履歴詳細</h5>
+  </div>
+  <div class="row">
     <div>
-      <% render 'form'%>
+      <%= render 'form',order: @order%>
     </div>
-    
+    </div>
+    <div class="row">
+
+    <table class="table col-9">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-3">
+      <h4>商品合計 <%= @order.customer.fist_name%></h4>
+      <h4>送料 <%= @order.shipping_cost%></h4>
+      <h4>請求金額合計 <%= @order.total_payment%></h4>
+    </div>
   </div>
 </div>

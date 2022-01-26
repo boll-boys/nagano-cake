@@ -16,3 +16,8 @@
           waiting_production: "製作待ち"
           in_production: "製作中"
           complete_production: "製作完了"
+    time:
+      formats:
+        default: "%Y%m/%d %H:%M:%S"
+        short: "%m/%d"
+        
