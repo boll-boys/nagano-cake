@@ -11,6 +11,8 @@ class Customers::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.shipping_cost = 800
     #status = enumで定義したやつを入れてあげる
+    #@order.status = enum making_status: { 着手不可: 0, 制作待ち: 1, 制作中: 2, 制作完了: 3 }
+    @order.status =  { not_startable: 0, waiting_production: 1, in_production: 2, complete_production: 3 }
     if @order.save
       #binding.pry
       cart_items.each do |cart|
@@ -20,6 +22,7 @@ class Customers::OrdersController < ApplicationController
         order_detail.amount = cart.amount
         order_detail.price = cart.item.price
         #making_status = enumで定義したやつを入れてあげる
+        order_detail.making_status = cart.status
         order_detail.save
       end
       redirect_to complete_path
