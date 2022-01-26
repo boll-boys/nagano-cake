@@ -8,6 +8,7 @@ class Customers::OrdersController < ApplicationController
 
   def create
     cart_items = current_customer.cart_items.all
+    #binding.pry
     @order = current_customer.orders.new(order_params)
     @order.shipping_cost = 800
     #status = enumで定義したやつを入れてあげる
@@ -22,8 +23,8 @@ class Customers::OrdersController < ApplicationController
         #making_status = enumで定義したやつを入れてあげる
         order_detail.save
       end
-      redirect_to complete_path
       cart_items.destroy_all
+      redirect_to complete_path
     else
       @order = Order.new(order_params)
       render :new
@@ -33,7 +34,7 @@ class Customers::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
       if params[:order][:address_number] == "1"
-        @order.name = current_customer.fist_name
+        @order.name = current_customer.fist_name + current_customer.last_name
         @order.address = current_customer.address
         @order.postal_code = current_customer.postal_code
       elsif params[:order][:address_number] == "2"
