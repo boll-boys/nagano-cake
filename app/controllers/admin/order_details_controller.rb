@@ -8,7 +8,6 @@ class Admin::OrderDetailsController < ApplicationController
     elsif @order_detail.order.order_details.count == @order_detail.order.order_details.where(making_status: "complete_production").count
       @order_detail.order.status = "preparing_ship"
       @order_detail.order.save
-    else
     end
       redirect_to request.referer
   end  
