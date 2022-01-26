@@ -29,7 +29,7 @@
       </tbody>
     </table>
     <div class="col-3">
-      <h4>商品合計 <%= @order.customer.fist_name%></h4>
+      <h4>商品合計 <%= @order.total_payment - @order.shipping_cost%></h4>
       <h4>送料 <%= @order.shipping_cost%></h4>
       <h4>請求金額合計 <%= @order.total_payment%></h4>
     </div>
