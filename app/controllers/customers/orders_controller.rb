@@ -3,7 +3,6 @@ class Customers::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    # @address = current_customer.address
   end
 
   def create
@@ -58,12 +57,10 @@ class Customers::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders.all
-    #@order_details =OrderDetail.all
   end
 
   def show
     @order =Order.find(params[:id])
-    #@order_details = OrderDetail.all
   end
 
   private

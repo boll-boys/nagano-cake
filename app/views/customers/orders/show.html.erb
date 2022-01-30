@@ -3,11 +3,11 @@
   <div calss="row">
       <div class="col-md-4">
       	<strong><i class="far fa-user"></i>注文情報</strong>
-    	    <table class="table table-bordered table-condensed">
+    	    <table class="md3 table">
             <tbody>
                 <tr>
                   <th class="info">注文日</th>
-            	    <td class="text-left"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+            	    <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
                 </tr>
                 <tr>
                   <th class="info">配送先</th>
@@ -28,7 +28,7 @@
           </table>
       </div>
 
-      <div class='col-md-6'>
+      <div class='flex'>
         <strong><i class="fas fa-yen-sign"></i>請求情報</strong>
           	<table class="table">
               <tr>
